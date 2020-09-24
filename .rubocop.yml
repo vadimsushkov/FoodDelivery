@@ -1,0 +1,39 @@
+AllCops:
+  TargetRubyVersion: "2.3.7"
+  Exclude:
+    - '_docs/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'docs/**/*'
+    - 'tmp/**/*'
+    - 'lib/tasks/**/*'
+    - 'node_modules/**/*'
+
+Documentation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 50
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/CyclomaticComplexity:
+  Max: 20
+
+Metrics/PerceivedComplexity:
+  Max: 25
+
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context', 'feature', 'it', 'resources', 'resource', 'namespace', 'task']
