@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 2020_09_23_085252) do
     t.string "customer"
     t.integer "products_number"
     t.string "total_price"
+    t.bigint "restaurant_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -56,4 +58,5 @@ ActiveRecord::Schema.define(version: 2020_09_23_085252) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "orders", "restaurants"
 end
