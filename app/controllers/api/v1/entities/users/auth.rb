@@ -3,8 +3,9 @@ module API
     module Entities
       module Users
         class Auth < Grape::Entity
-          expose :user_id, documentation: {type: "Integer"}
+          expose :id, as: :user_id, documentation: {type: "Integer"}
           expose :token, documentation: {type: "String"}
+
         end
       end
     end

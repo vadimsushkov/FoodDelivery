@@ -35,6 +35,8 @@ gem 'grape-route-helpers', git: 'https://github.com/oswaldoferreira/grape-route-
 gem 'grape-swagger'
 gem 'grape-swagger-entity'
 gem 'grape-swagger-rails'
+gem 'jwt'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

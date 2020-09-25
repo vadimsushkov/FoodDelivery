@@ -84,6 +84,10 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
+    dotenv (2.7.6)
+    dotenv-rails (2.7.6)
+      dotenv (= 2.7.6)
+      railties (>= 3.2)
     dry-configurable (0.11.6)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.4, >= 0.4.7)
@@ -131,6 +135,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
       activesupport (>= 5.0.0)
+    jwt (2.2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -278,6 +283,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  dotenv-rails
   grape
   grape-entity
   grape-route-helpers!
@@ -285,6 +291,7 @@ DEPENDENCIES
   grape-swagger-entity
   grape-swagger-rails
   jbuilder (~> 2.7)
+  jwt
   listen (~> 3.2)
   postgresql
   puma (~> 4.1)
