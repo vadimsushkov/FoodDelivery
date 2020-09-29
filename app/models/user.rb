@@ -3,16 +3,16 @@ class User < ApplicationRecord
 
 	#enum status: {'admin': 0, 'owner': 1, 'worker': 3}
 
-	scope :admins, -> { where(type: 'Admin') }
-	scope :owners, -> { where(type: 'Owner') }
+	scope :admins, -> { where(type: 'AdminUser') }
+	scope :owners, -> { where(type: 'OwnerUser') }
 	scope :stuff_user, -> { where(type: 'StuffUser') }
 
 	def admin?
-		type == 'Admin'
+		type == 'AdminUser'
 	end
 
 	def owner?
-		type == 'Owner'
+		type == 'OwnerUser'
 	end
 
 	def stuff_user?

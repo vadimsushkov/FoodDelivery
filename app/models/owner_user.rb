@@ -1,3 +1,3 @@
-class StuffUser < User
+class OwnerUser < User
   has_one :restaurant
 end
