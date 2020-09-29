@@ -25,9 +25,9 @@ module API
         params do
           requires :email, type: 'String', allow_blank: false
         end
-        delete :login do
+        put :login do
           user = User.find_by_email(params[:email])
-          user.destroy
+          put 'password/update', to: 'password#update'
         end
       end
 

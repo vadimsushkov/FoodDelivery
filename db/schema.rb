@@ -68,8 +68,10 @@ ActiveRecord::Schema.define(version: 2020_09_28_140308) do
     t.string "email"
     t.string "password"
     t.string "type"
+    t.string "token"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["type"], name: "index_users_on_type"
   end
 
   add_foreign_key "items", "menus"
