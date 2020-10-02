@@ -1,6 +1,9 @@
 class User < ApplicationRecord
 	has_many :orders
 
+	validates :email, presence: true, uniqueness: true
+	validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+
 	#enum status: {'admin': 0, 'owner': 1, 'worker': 3}
 
 	scope :admins, -> { where(type: 'AdminUser') }
@@ -19,7 +22,6 @@ class User < ApplicationRecord
 		type == 'StuffUser'
 	end
 
-
 	def password=(value)
 		salt = (('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a).shuffle[0,8].join
 		write_attribute(:password, "#{Digest::MD5.hexdigest("#{Digest::MD5.hexdigest(value)}:#{salt}")}:#{salt}")
@@ -31,7 +33,20 @@ class User < ApplicationRecord
 	end
 
 	def token
-		'Test'
+		return super if super
+		token!
+	end
+
+	def token!
+		self.token = "#{id}:#{JsonWebToken.encode(random: generate_token, user_id: id, email: email, type: type)}"
+		save
+		token
+	end
+
+	private
+
+	def generate_token
+		SecureRandom.hex(10)
 	end
 
 end
